@@ -1,8 +1,15 @@
 
+// player sprite images
+const playerSpriteRight = "url('playerSpriteRight.png')";
+const playerSpriteLeft = "url('playerSpriteLeft.png')";
+const playerSpriteUp = "url('playerSpriteUp.png')";
+const playerSpriteDown = "url('playerSpriteDown.png')";
+
 const player = document.getElementById('player');
+player.style.backgroundImage = playerSpriteRight;
 const playableArea = document.getElementById('gameArea');
 
-const playerSideLength = 50; // Side length of player in pixels (assuming square sprite)
+const playerSideLength = player.offsetWidth; // Side length of player in pixels (assuming square sprite)
 let posX = player.offsetLeft; // player's X position
 let posY = player.offsetTop; // player's Y position
 
@@ -83,6 +90,7 @@ function createAfterImages()
             // Position based on dash direction
             afterimage.style.left = (posX - (dashDirection.x * (i * spacingMultiplier + initialOffsetMultiplier))) + 'px'; 
             afterimage.style.top = (posY - (dashDirection.y * (i * spacingMultiplier + initialOffsetMultiplier))) + 'px';
+            afterimage.style.backgroundImage = player.style.backgroundImage;
             playableArea.appendChild(afterimage);
             
 
@@ -110,21 +118,25 @@ document.addEventListener('keydown', (event) =>
         case "w":
         case 'ArrowUp':
             moving.up = true;
+            player.style.backgroundImage = playerSpriteUp;
             break;
 
         case "s":
         case 'ArrowDown':
             moving.down = true;
+            player.style.backgroundImage = playerSpriteDown;
             break;
 
         case "a":
         case 'ArrowLeft':
             moving.left = true;
+            player.style.backgroundImage = playerSpriteLeft;
             break;
 
         case "d":
         case 'ArrowRight':
             moving.right = true;
+            player.style.backgroundImage = playerSpriteRight;
             break;
     }
 });
