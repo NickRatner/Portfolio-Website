@@ -13,8 +13,9 @@ const playerSideLength = player.offsetWidth; // Side length of player in pixels 
 let posX = player.offsetLeft; // player's X position
 let posY = player.offsetTop; // player's Y position
 
-let speed = 10; // Movement speed
-const dashSpeed = 30; // Dash movement speed
+const initialSpeed = 8;
+let speed = initialSpeed; // Movement speed
+const dashSpeed = 20; // Dash movement speed
 let canDash = true;
 
 
@@ -34,7 +35,7 @@ setInterval(movePlayer, 16); // set up interval to call movePlayer every 16 mill
 
 function resetSpeed()
 {
-    speed = 10
+    speed = initialSpeed;
     canDash = true;
 }
 
