@@ -17,8 +17,10 @@ body {
 }
 
 .portal {
+    position: absolute;
 
-    
+    width: 17%;
+    height: 25%;
 }
 
 #player {
