@@ -8,12 +8,23 @@ body {
     overflow: hidden;
 }
 
+#instructionsScreen {
+    width: 40vw;
+    height: 40vh;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    background-color: lightblue;
+    position: relative;
+    z-index: 3;
+}
+
 #gameArea {
     width: 100vw;
     height: 100vh;
-    background-color: lightblue;
     position: relative;
     background-size: 100% 100%;
+    z-index: 0;
 }
 
 .portal {
@@ -21,21 +32,25 @@ body {
 
     width: 17%;
     height: 25%;
+
+    z-index: 1;
 }
 
 #player {
-    width: 45px;
-    height: 45px;
+    width: 2.5vw;
+    height: 2.5vw;
     position: absolute;
     background-size: cover;
     left: 50%;
     top: 50%;
+
+    z-index: 2;
 }
 
 .afterimage {
     position: absolute;
-    width: 45px;
-    height: 45px;
+    width: 2.5vw;
+    height: 2.5vw;
     background-size: contain;
     opacity: 0.5;
     transition: opacity 0.1s ease;

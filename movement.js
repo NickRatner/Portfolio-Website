@@ -18,7 +18,6 @@ let speed = initialSpeed; // Movement speed
 const dashSpeed = 20; // Dash movement speed
 let canDash = true;
 
-
 const numberOfAfterimages = 4; // number of afterimages created
 const afterimageDelay = 25; // Delay between afterimages in milliseconds
 const spacingMultiplier = 3; // after image distance from each other
@@ -46,6 +45,8 @@ function setDashSpeed()
 
 function movePlayer() 
 {
+    if (isInstructionsVisible) return;  // don't do anything if instructions are still open
+
     if(moving.up)
     {
         posY = Math.max(0, posY - speed);
@@ -72,6 +73,8 @@ function movePlayer()
 
 function createAfterImages()
 {
+    if (isInstructionsVisible) return;  // don't do anything if instructions are still open
+
     const dashDirection = { x: 0, y: 0 };
 
     if (moving.up) dashDirection.y = -dashSpeed;
@@ -114,6 +117,8 @@ function createAfterImages()
 
 document.addEventListener('keydown', (event) => 
 {
+    if (isInstructionsVisible) return;  // don't do anything if instructions are still open
+    
     switch(event.key)
     {
         case "w":
@@ -144,6 +149,8 @@ document.addEventListener('keydown', (event) =>
 
 document.addEventListener('keyup', (event) => 
 {
+    if (isInstructionsVisible) return;  // don't do anything if instructions are still open
+    
     switch (event.key)
     {
         case "w":
@@ -171,6 +178,8 @@ document.addEventListener('keyup', (event) =>
 
 document.addEventListener('keypress', (event) => 
 {
+    if (isInstructionsVisible) return;  // don't do anything if instructions are still open
+    
     switch(event.key)
     {
         case " ": // when space bar is pressed, dash
