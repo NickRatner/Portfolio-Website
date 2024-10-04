@@ -43,6 +43,10 @@ body {
     z-index: 1;
 }
 
+.portal:hover {
+    transform: scale(1.25);
+}
+
 .pressSpacePopUp {
     background-color: lightgray;
 
@@ -84,3 +88,45 @@ body {
     opacity: 0.5;
     transition: opacity 0.1s ease;
 }
+
+.sideProject {
+    position: absolute;
+
+    width:20%;
+    height: 15%;
+
+    display: flex;
+    justify-content: center; 
+    align-items: flex-end;
+
+    background-image: url(Images/Sprites/CloudSprite.png);
+ 
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.sideProjectInfo {
+    display: none; /* Initially hide the info box */
+
+    position: absolute; /* Position it relative to the hover-area */
+    
+    top: 100%; /* Position it below the hover area */
+    left: 50%; /* Center it horizontally */
+    
+    transform: translateX(-50%); /* Adjust horizontal position */
+    
+    background-color: white; /* Background color for the info box */
+    border: 1px solid #ccc; /* Border for visibility */
+    border-radius: 15px;
+    
+    padding: 10px; /* Padding inside the info box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    z-index: 10; /* Ensure it's above other content */
+  }
+
+.sideProject:hover .sideProjectInfo {
+    display: block;
+}
+
+

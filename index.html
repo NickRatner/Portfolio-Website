@@ -17,6 +17,7 @@
         <h2>Welcome to my Website!</h2>
         <h4>WASD or Arrow Keys to Move</h4>
         <h4>Space to Dash</h4>
+        <h4>Click on or run to the portals</h4>
         
         <button onclick="instructionsClicked()">Close</button>
     </div>
@@ -24,9 +25,9 @@
 
         <div id="player"></div>
         
-        <img src="Images/Sprites/portalSprite.gif" class="portal" id="sideProjectsPortal" alt="A Portal!" style="top: 2%; left: 41%;">
-        <img src="Images/Sprites/portalSprite.gif" class="portal" id="experiencePortal" alt="A Portal!" style="top: 50%; left: 3%;">
-        <img src="Images/Sprites/portalSprite.gif" class="portal" id="aboutMePortal" alt="A Portal!" style="top: 45%; left: 78%;">
+        <img src="Images/Sprites/portalSprite.gif" class="portal" id="sideProjectsPortal" alt="A Portal!" style="top: 2%; left: 41%;" onclick = "window.location.href = 'sideProjects.html'">
+        <img src="Images/Sprites/portalSprite.gif" class="portal" id="experiencePortal" alt="A Portal!" style="top: 50%; left: 3%;" onclick = "window.location.href = 'experience.html'">
+        <img src="Images/Sprites/portalSprite.gif" class="portal" id="aboutMePortal" alt="A Portal!" style="top: 45%; left: 78%;" onclick = "window.location.href = 'aboutMe.html'">
 
         <div class="pressSpacePopUp" id="PressSpacePopUp">Press Space</div>
 
