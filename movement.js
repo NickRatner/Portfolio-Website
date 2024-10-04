@@ -1,10 +1,20 @@
 
 // player sprite images
-const playerSpriteRight = "url('Images/Sprites/playerSpriteRight.png')";
-const playerSpriteLeft = "url('Images/Sprites/playerSpriteLeft.png')";
-const playerSpriteUp = "url('Images/Sprites/playerSpriteUp.png')";
-const playerSpriteDown = "url('Images/Sprites/playerSpriteDown.png')";
 
+let playerSpriteRight, playerSpriteLeft, playerSpriteUp, playerSpriteDown;
+
+if(window.location.href.includes("experience.html"))
+{
+    playerSpriteRight = "url('Images/Sprites/AstronautSpriteRight.png')";
+    playerSpriteLeft = "url('Images/Sprites/AstronautSpriteLeft.png')";
+}
+else
+{
+    playerSpriteRight = "url('Images/Sprites/playerSpriteRight.png')";
+    playerSpriteLeft = "url('Images/Sprites/playerSpriteLeft.png')";
+    playerSpriteUp = "url('Images/Sprites/playerSpriteUp.png')";
+    playerSpriteDown = "url('Images/Sprites/playerSpriteDown.png')";
+}
 const player = document.getElementById('player');
 player.style.backgroundImage = playerSpriteRight;
 const playableArea = document.getElementById('gameArea');
@@ -134,13 +144,19 @@ document.addEventListener('keydown', (event) =>
         case "w":
         case 'ArrowUp':
             moving.up = true;
-            player.style.backgroundImage = playerSpriteUp;
+            if(!window.location.href.includes("experience.html"))
+            {
+                player.style.backgroundImage = playerSpriteUp;
+            }
             break;
 
         case "s":
         case 'ArrowDown':
             moving.down = true;
-            player.style.backgroundImage = playerSpriteDown;
+            if(!window.location.href.includes("experience.html"))
+            {
+                player.style.backgroundImage = playerSpriteDown;
+            }
             break;
 
         case "a":
