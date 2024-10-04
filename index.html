@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
   
   <title> Portfolio Website</title>
 </head>
@@ -14,30 +15,28 @@
     
     <div id="instructionsScreen">
         <h2>Welcome to my Website!</h2>
-        
         <h4>WASD or Arrow Keys to Move</h4>
-            
         <h4>Space to Dash</h4>
         
         <button onclick="instructionsClicked()">Close</button>
     </div>
 
 
-    <div id="player"></div>
+        <div id="player"></div>
+        
+        <img src="Images/Sprites/portalSprite.gif" class="portal" id="sideProjectsPortal" alt="A Portal!" style="top: 2%; left: 41%;">
+        <img src="Images/Sprites/portalSprite.gif" class="portal" id="experiencePortal" alt="A Portal!" style="top: 50%; left: 3%;">
+        <img src="Images/Sprites/portalSprite.gif" class="portal" id="aboutMePortal" alt="A Portal!" style="top: 45%; left: 78%;">
+
+        <div class="pressSpacePopUp" id="PressSpacePopUp">Press Space</div>
+
+
+    </div>
+
     
-    <img src="Images/Sprites/portalSprite.gif" class="portal" id="sideProjectsPortal" alt="A Portal!" style="top: 2%; left: 41%;">
-    <img src="Images/Sprites/portalSprite.gif" class="portal" id="experiencePortal" alt="A Portal!" style="top: 50%; left: 3%;">
-    <img src="Images/Sprites/portalSprite.gif" class="portal" id="aboutMePortal" alt="A Portal!" style="top: 45%; left: 78%;">
-
-    <div class="pressSpacePopUp" id="sideProjectsPopUp">Press Space</div>
-    <div class="pressSpacePopUp" id="experiencePopUp">Press Space</div>
-    <div class="pressSpacePopUp" id="aboutMePopUp">Press Space</div>
-
-</div>
-
-
-  <script src="movement.js"></script>
-  <script src="portals.js"></script>
-  <script src="instructions.js"></script>
+    <script src="instructions.js"></script>
+    <script src="movement.js"></script>
+    <script src="portals.js"></script>
+    <script> let firstTimeLoadingSite = false; </script>
 </body>
 </html>

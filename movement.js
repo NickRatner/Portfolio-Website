@@ -21,7 +21,7 @@ let canDash = true;
 const numberOfAfterimages = 4; // number of afterimages created
 const afterimageDelay = 25; // Delay between afterimages in milliseconds
 const spacingMultiplier = 3; // after image distance from each other
-const initialOffsetMultiplier = -1; // after image distance from cube
+const initialOffsetMultiplier = -1; // after image distance from player
 
 
 let playableAreaWidth = playableArea.offsetWidth;
@@ -74,11 +74,11 @@ function movePlayer()
 
     if(collisions.isColliding) // Check for collision with portals after moving
     {
-        enableSpacePopUp(collisions);
+        enableSpacePopUp(collisions.collisionPortal);
     }
     else
     {
-        disablePopUp(collisions);
+        disablePopUp();
     }
 }
 
@@ -193,21 +193,30 @@ document.addEventListener('keypress', (event) =>
     {
         case " ": // when space bar is pressed, dash, or take portal
             
-            let collisions = checkCollisionWithPortal(); 
+            let collisions= checkCollisionWithPortal(); 
             // check for pressing space while touching a portal
-            if(collisions.collidingWithSideProjects) 
+            if(collisions.isColliding)
             {
-                window.location.href = "sideProjects.html";
+                let collisionsPortal = collisions.collisionPortal;
+
+                if(collisionsPortal.id == "sideProjectsPortal") 
+                {
+                    window.location.href = "sideProjects.html";
+                }
+                else if(collisionsPortal.id == "experiencePortal")
+                {
+                    window.location.href = "experience.html";
+                }
+                else if(collisionsPortal.id == "aboutMePortal")
+                {
+                    window.location.href = "aboutMe.html";
+                }
+                else if(collisionsPortal.id = "homePortal")
+                {
+                    window.location.href = "index.html";
+                }
             }
-            else if(collisions.collidingWithExperience)
-            {
-                window.location.href = "experience.html";
-            }
-            else if(collisions.collidingWithAboutMe)
-            {
-                window.location.href = "aboutMe.html";
-            }
-            
+
             // otherwise dash
             if(canDash)
             {

@@ -2,9 +2,21 @@ const instructionsScreen = document.getElementById('instructionsScreen');
 
 let isInstructionsVisible = true;
 
+window.onload = function() {
+    // Check if instructions have already been seen this session
+    if (sessionStorage.getItem('instructionsSeen')) 
+    {
+        // Show the instructions if this is the first time in this session
+        document.getElementById('instructionsScreen').style.display = 'none';
+        isInstructionsVisible = false;
+    }
+};
 
-function instructionsClicked()
-{
+function instructionsClicked() {
+
     isInstructionsVisible = false;
-    instructionsScreen.remove();
+    document.getElementById('instructionsScreen').style.display = 'none';
+    
+    // Mark instructions as seen in sessionStorage
+    sessionStorage.setItem('instructionsSeen', 'true');
 }
