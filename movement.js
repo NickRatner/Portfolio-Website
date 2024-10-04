@@ -1,9 +1,9 @@
 
 // player sprite images
-const playerSpriteRight = "url('playerSpriteRight.png')";
-const playerSpriteLeft = "url('playerSpriteLeft.png')";
-const playerSpriteUp = "url('playerSpriteUp.png')";
-const playerSpriteDown = "url('playerSpriteDown.png')";
+const playerSpriteRight = "url('Images/Sprites/playerSpriteRight.png')";
+const playerSpriteLeft = "url('Images/Sprites/playerSpriteLeft.png')";
+const playerSpriteUp = "url('Images/Sprites/playerSpriteUp.png')";
+const playerSpriteDown = "url('Images/Sprites/playerSpriteDown.png')";
 
 const player = document.getElementById('player');
 player.style.backgroundImage = playerSpriteRight;
@@ -191,7 +191,24 @@ document.addEventListener('keypress', (event) =>
     
     switch(event.key)
     {
-        case " ": // when space bar is pressed, dash
+        case " ": // when space bar is pressed, dash, or take portal
+            
+            let collisions = checkCollisionWithPortal(); 
+            // check for pressing space while touching a portal
+            if(collisions.collidingWithSideProjects) 
+            {
+                window.location.href = "sideProjects.html";
+            }
+            else if(collisions.collidingWithExperience)
+            {
+                window.location.href = "experience.html";
+            }
+            else if(collisions.collidingWithAboutMe)
+            {
+                window.location.href = "aboutMe.html";
+            }
+            
+            // otherwise dash
             if(canDash)
             {
                 setDashSpeed();
