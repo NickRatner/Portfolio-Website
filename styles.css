@@ -9,13 +9,21 @@ body {
 }
 
 #instructionsScreen {
-    width: 40vw;
-    height: 40vh;
-    left: 50%;
-    top: 50%;
+    width: 20vw;
+    height: 20vh;
+    left: 40vw;
+    top: 30vh;
     text-align: center;
     background-color: lightblue;
+    
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #FFFFFF;
+    
     position: relative;
+    
+    
     z-index: 3;
 }
 
@@ -35,6 +43,25 @@ body {
 
     z-index: 1;
 }
+
+.pressSpacePopUp {
+    background-color: lightgray;
+
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 20px;
+
+    position: absolute;
+    width: 10%;
+    padding: 15px;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    text-align: center; /* Center text */
+    
+    display: none; /* Initially hidden */
+}
+
+
 
 #player {
     width: 2.5vw;

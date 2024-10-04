@@ -69,6 +69,17 @@ function movePlayer()
     
     player.style.left = posX + 'px';
     player.style.top = posY + 'px';
+
+    let collisions = checkCollisionWithPortal(); 
+
+    if(collisions.isColliding) // Check for collision with portals after moving
+    {
+        enableSpacePopUp(collisions);
+    }
+    else
+    {
+        disablePopUp(collisions);
+    }
 }
 
 function createAfterImages()
@@ -112,7 +123,6 @@ function createAfterImages()
     }
 
 }
-
 
 
 document.addEventListener('keydown', (event) => 
@@ -174,7 +184,6 @@ document.addEventListener('keyup', (event) =>
             break;
     }
 });
-
 
 document.addEventListener('keypress', (event) => 
 {

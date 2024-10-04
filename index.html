@@ -13,23 +13,31 @@
   <div id="gameArea" style="background-image: url(VillageSquareBackground.png);">
     
     <div id="instructionsScreen">
-        <h2>Instructions</h2>
-        <p>Welcome to the game! Here are some instructions on how to play:</p>
-
+        <h2>Welcome to my Website!</h2>
+        
+        <h4>WASD or Arrow Keys to Move</h4>
+            
+        <h4>Space to Dash</h4>
+        
         <button onclick="instructionsClicked()">Close</button>
     </div>
 
 
     <div id="player"></div>
     
-    <img src="portalSprite.gif" class="portal" alt="A Portal!" style="top: 2%; left: 41%;">
-    <img src="portalSprite.gif" class="portal" alt="A Portal!" style="top: 50%; left: 3%;">
-    <img src="portalSprite.gif" class="portal" alt="A Portal!" style="top: 45%; left: 78%;">
+    <img src="portalSprite.gif" class="portal" id="sideProjectsPortal" alt="A Portal!" style="top: 2%; left: 41%;">
+    <img src="portalSprite.gif" class="portal" id="experiencePortal" alt="A Portal!" style="top: 50%; left: 3%;">
+    <img src="portalSprite.gif" class="portal" id="aboutMePortal" alt="A Portal!" style="top: 45%; left: 78%;">
+
+    <div class="pressSpacePopUp" id="sideProjectsPopUp">Press Space</div>
+    <div class="pressSpacePopUp" id="experiencePopUp">Press Space</div>
+    <div class="pressSpacePopUp" id="aboutMePopUp">Press Space</div>
 
 </div>
 
 
   <script src="movement.js"></script>
+  <script src="portals.js"></script>
   <script src="instructions.js"></script>
 </body>
 </html>
