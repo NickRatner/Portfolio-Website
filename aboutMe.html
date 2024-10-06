@@ -20,21 +20,21 @@
         <div class="pressSpacePopUp" id="PressSpacePopUp">Press Space</div>
 
 
-        <div class="aboutMeSection" style="top: 50%; left: 16%;"> 
+        <div class="aboutMeSection" id="bear" style="top: 50%; left: 16%;" onclick="window.location.href = 'Resume - Nick Ratner.pdf'"> 
             <img src="Images/Sprites/BearSprite.png" alt="A Bear!" style="width: 80%">
-            <p>Resume</p>
+            <p> <a href="Resume - Nick Ratner.pdf"> Resume </a> </p>
         </div>
         
         
-        <div class="aboutMeSection" style="top: 25%; left: 43%;"> 
+        <div class="aboutMeSection" id="squirrel" style="top: 25%; left: 43%;" onclick="window.location.href = 'https://www.linkedin.com/in/nicholas-ratner/'"> 
             <img src="Images/Sprites/SquirrelSprite.png" alt="A Squirrel!" style="width: 60%">
-            <p>LinkedIn</p>
+            <p> <a href="https://www.linkedin.com/in/nicholas-ratner/"> LinkedIn </a> </p>
         </div>
 
 
-        <div class="aboutMeSection" style="top: 62%; left: 67%;"> 
+        <div class="aboutMeSection" id="owl" style="top: 68%; left: 65%;" onclick="window.location.href = 'https://github.com/NickRatner'"> 
             <img src="Images/Sprites/OwlSprite.png" alt="An Owl!" style="width: 50%">
-            <p>GitHub</p>
+            <p> <a href="https://github.com/NickRatner"> GitHub </a></p>
         </div>
 
     </div>
@@ -42,6 +42,7 @@
     
     <script src="movement.js"></script>
     <script src="portals.js"></script>
+    <script src="animals.js"></script>
     <script> isInstructionsVisible = false; // make sure player can move </script>
 </body>
 

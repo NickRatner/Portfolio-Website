@@ -105,6 +105,20 @@ function movePlayer()
             disableInfoBox();
         }
     }
+
+    if(window.location.href.includes("aboutMe.html")) // if the page is the aboutMe page, check for collision with an animal
+    {
+        let collisionsAnimal = checkCollisionWithAnimals();
+
+        if(collisionsAnimal.isColliding)
+        {
+            enableSpaceAnimalPopUp(collisionsAnimal.collisionAnimal);
+        }
+        else
+        {
+
+        }
+    }
 }
 
 function createAfterImages()
@@ -224,6 +238,28 @@ document.addEventListener('keypress', (event) =>
     {
         case " ": // when space bar is pressed, dash, or take portal
             
+            if(window.location.href.includes("aboutMe.html"))
+            {
+                let collision = checkCollisionWithAnimals();
+                if(collision.isColliding)
+                {
+                    switch(collision.collisionAnimal.id)
+                    {
+                        case "bear":
+                            window.location.href = "Resume - Nick Ratner.pdf"
+                            break
+                        
+                        case "squirrel":
+                            window.location.href = "https://www.linkedin.com/in/nicholas-ratner/"
+                            break
+
+                        case "owl":
+                            window.location.href = "https://github.com/NickRatner"
+                            break
+                    }
+                }   
+            }
+        
             let collisions= checkCollisionWithPortal(); 
             // check for pressing space while touching a portal
             if(collisions.isColliding)
