@@ -140,3 +140,15 @@ body {
   .sideProjectInfo p {
     line-height: 1.5;
   }
+
+
+.aboutMeSection {
+    position: absolute;
+
+    width: 10%;
+    height: 15%;
+
+    font-size: 150%;
+
+    z-index: 3;
+}
