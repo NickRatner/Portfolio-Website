@@ -90,6 +90,21 @@ function movePlayer()
     {
         disablePopUp();
     }
+
+    if(window.location.href.includes("sideProjects.html"))  // if the page is the sideProjects page, check for collision with a cloud
+    {
+        let collisionsCloud = checkCollisionWithCloud(); 
+
+        disableInfoBox();
+        if(collisionsCloud.isColliding) // Check for collision with portals after moving
+        {
+            enableInfoBox(collisionsCloud.collisionCloud);
+        }
+        else
+        {
+            disableInfoBox();
+        }
+    }
 }
 
 function createAfterImages()
