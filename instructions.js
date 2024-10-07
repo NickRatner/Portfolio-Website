@@ -9,6 +9,8 @@ window.onload = function() {
         // Show the instructions if this is the first time in this session
         document.getElementById('instructionsScreen').style.display = 'none';
         isInstructionsVisible = false;
+
+        
     }
 };
 

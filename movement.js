@@ -28,10 +28,16 @@ let speed = initialSpeed; // Movement speed
 const dashSpeed = 20; // Dash movement speed
 let canDash = true;
 
+const dashSFX = new Audio('SFX/DashSFX.mp3');
+const portalSFX = new Audio('SFX/PortalSFX.mp3');
+
 const numberOfAfterimages = 4; // number of afterimages created
 const afterimageDelay = 25; // Delay between afterimages in milliseconds
 const spacingMultiplier = 3; // after image distance from each other
 const initialOffsetMultiplier = -1; // after image distance from player
+
+
+
 
 
 let playableAreaWidth = playableArea.offsetWidth;
@@ -260,42 +266,55 @@ document.addEventListener('keypress', (event) =>
                 }   
             }
         
-            let collisions= checkCollisionWithPortal(); 
+            let collisions= checkCollisionWithPortal();
+            let destinationUrl = null;
+
             // check for pressing space while touching a portal
             if(collisions.isColliding)
             {
+                // play portal sfx
+                portalSFX.play();
                 let collisionsPortal = collisions.collisionPortal;
 
                 if(collisionsPortal.id == "sideProjectsPortal") 
                 {
-                    window.location.href = "sideProjects.html";
+                    destinationUrl = "sideProjects.html";
                 }
                 else if(collisionsPortal.id == "experiencePortal")
                 {
-                    window.location.href = "experience.html";
+                    destinationUrl = "experience.html";
                 }
                 else if(collisionsPortal.id == "aboutMePortal")
                 {
-                    window.location.href = "aboutMe.html";
+                    destinationUrl = "aboutMe.html";
                 }
                 else if(collisionsPortal.id = "homePortal")
                 {
-                    window.location.href = "index.html";
+                    destinationUrl = "index.html";
+                }
+
+                if(destinationUrl) 
+                {
+                    portalSFX.addEventListener('ended', function() {
+                        window.location.href = destinationUrl;
+                    });
                 }
             }
-
-            // otherwise dash
-            if(canDash)
+            else // otherwise dash
             {
-                setDashSpeed();
-                canDash = false;
-                createAfterImages();
-
-                setTimeout(() => 
+                if(canDash)
                 {
-                    resetSpeed();
-                }, 100); // reset speed after 100ms
+                    dashSFX.play();
+                    setDashSpeed();
+                    canDash = false;
+                    createAfterImages();
+
+                    setTimeout(() => 
+                    {
+                        resetSpeed();
+                    }, 100); // reset speed after 100ms
+                }
+                break;
             }
-            break;
     }
 });
