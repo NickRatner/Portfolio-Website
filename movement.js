@@ -112,6 +112,21 @@ function movePlayer()
         }
     }
 
+    if(window.location.href.includes("experience.html"))  // if the page is the sideProjects page, check for collision with a cloud
+    {
+        let collisionsSpaceObject = checkCollisionWithSpaceObject(); 
+
+        disableExperienceInfoBox();
+        if(collisionsSpaceObject.isColliding) // Check for collision with portals after moving
+        {
+            enableExperienceInfoBox(collisionsSpaceObject.collisionSpaceObject);
+        }
+        else
+        {
+            disableExperienceInfoBox();
+        }
+    }
+
     if(window.location.href.includes("aboutMe.html")) // if the page is the aboutMe page, check for collision with an animal
     {
         let collisionsAnimal = checkCollisionWithAnimals();
@@ -119,10 +134,6 @@ function movePlayer()
         if(collisionsAnimal.isColliding)
         {
             enableSpaceAnimalPopUp(collisionsAnimal.collisionAnimal);
-        }
-        else
-        {
-
         }
     }
 }
@@ -275,6 +286,7 @@ document.addEventListener('keypress', (event) =>
                 // play portal sfx
                 portalSFX.play();
                 let collisionsPortal = collisions.collisionPortal;
+                document.getElementById(collisionsPortal.id).style.transform = "scale(1.25)";
 
                 if(collisionsPortal.id == "sideProjectsPortal") 
                 {
