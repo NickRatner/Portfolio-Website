@@ -33,6 +33,7 @@ function enableExperienceInfoBox(spaceObject)
     const infoBox = spaceObject.querySelector('.experienceInfo');
     if (infoBox) 
     {
+        spaceObject.style.animation = "none";
         infoBox.style.display = "block";
     }
 }
@@ -45,6 +46,7 @@ function disableExperienceInfoBox()
         const infoBox = spaceObject.querySelector('.experienceInfo');
         if(isHovering != spaceObject)
         {
+            spaceObject.style.animation = "pulse 2s infinite ease-in-out";
             infoBox.style.display = "none";
         }
     });
@@ -60,6 +62,7 @@ spaceObjects.forEach(spaceObject =>
     {
         isHovering = spaceObject;
         infoBox.style.display = "block"; // Show infobox
+        spaceObject.style.animation = "none";
     });
 
     // When mouse leaves, reset hover flag and check player collision
