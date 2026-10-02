@@ -1,0 +1,143 @@
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    #controls {
+        left: 12px;
+        bottom: 12px;
+
+        font-size: 11px;
+    }
+
+
+    #system-status {
+        top: 12px;
+        right: 12px;
+
+        font-size: 10px;
+    }
+
+
+    #menu-button {
+        top: 12px;
+        left: 12px;
+
+        font-size: 11px;
+    }
+
+
+    .window {
+        width: 94vw;
+
+        padding: 28px 22px;
+    }
+
+
+    #map {
+        height: 400px;
+    }
+
+
+    #terminal-window {
+        width: 94vw;
+        height: 70vh;
+    }
+}
+
+
+/* =========================================
+   PHONE
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+
+    #boot-terminal {
+        font-size: 12px;
+    }
+
+
+    #boot-output {
+        min-height: 300px;
+    }
+
+
+    #interaction-prompt {
+        bottom: 70px;
+
+        font-size: 12px;
+
+        white-space: nowrap;
+    }
+
+
+    .window {
+        max-height: 85vh;
+
+        padding: 25px 18px;
+    }
+
+
+    .window h2 {
+        font-size: 18px;
+    }
+
+
+    /* Make the map smaller */
+
+    #map {
+        height: 350px;
+    }
+
+
+    .map-node {
+        width: 85px;
+        height: 55px;
+    }
+
+
+    .map-node strong {
+        font-size: 11px;
+    }
+
+
+    .map-node span {
+        font-size: 8px;
+    }
+
+
+    #map-ram {
+        left: 5%;
+    }
+
+
+    #map-gpu {
+        right: 5%;
+    }
+
+
+    #map-storage {
+        left: 10%;
+    }
+
+
+    #map-terminal {
+        right: 10%;
+    }
+
+
+    #controls {
+        max-width: 180px;
+    }
+
+
+    #system-status {
+        padding: 6px 8px;
+    }
+}

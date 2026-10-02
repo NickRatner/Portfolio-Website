@@ -1,0 +1,77 @@
+/* =========================================
+   GLOBAL
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #050807;
+    color: #d8e8df;
+
+    font-family:
+        "Courier New",
+        Courier,
+        monospace;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+button {
+    font: inherit;
+    color: inherit;
+}
+
+
+/* =========================================
+   LINKS
+   ========================================= */
+
+a {
+    color: #5ee89a;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   UTILITY
+   ========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   SCREENS
+   ========================================= */
+
+#boot-screen,
+#game-screen {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+}

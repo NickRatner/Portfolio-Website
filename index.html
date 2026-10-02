@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the site scale properly on phones/tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nick Ratner | Software Engineer</title>
+    <meta
+        name="description"
+        content="Software engineering portfolio of Nick Ratner."
+    >
+
+    <!--  Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/boot.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/ui.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         BOOT SCREEN
+         ========================================= -->
+    <section id="boot-screen">
+
+        <div id="boot-terminal">
+            <div id="boot-output"></div>
+
+            <div id="boot-prompt" class="hidden">
+                PRESS SPACE TO BOOT
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         GAME
+         ========================================= -->
+    <main id="game-screen" class="hidden">
+
+        <!--
+            The actual motherboard/game world
+            will be rendered here by JavaScript.
+        -->
+        <canvas id="game-canvas"></canvas>
+
+
+        <!-- =====================================
+             HUD
+             ===================================== -->
+
+        <div id="hud">
+
+            <!-- Controls shown to the player -->
+            <div id="controls">
+                <div>
+                    <span class="control-key">WASD/ Arrow Keys</span>
+                    <span class="control-action">MOVE</span>
+                </div>
+
+                <div>
+                    <span class="control-key">SPACE</span>
+                    <span class="control-action">DASH / INTERACT</span>
+                </div>
+
+                <div>
+                    <span class="control-key">M</span>
+                    <span class="control-action">MAP</span>
+                </div>
+
+            </div>
+
+            <!-- Current system status -->
+            <div id="system-status">
+                <span id="status-indicator"></span>
+                SYSTEM ONLINE
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             INTERACTION PROMPT
+             ===================================== -->
+
+        <div id="interaction-prompt" class="hidden">
+            <span id="interaction-text">INTERACT</span>
+        </div>
+
+
+        <!-- =====================================
+             MAIN MENU
+             ===================================== -->
+
+        <div id="top-left-buttons">
+            <button id="menu-button" type="button">
+                ☰ MENU
+            </button>
+
+            <a
+                id="resume-button"
+                href="./resume/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                RESUME
+            </a>
+        </div>
+
+
+        <div id="navigation-menu" class="overlay hidden">
+
+            <div class="window">
+
+                <button
+                    class="close-button"
+                    id="menu-close"
+                    type="button"
+                >
+                    ×
+                </button>
+
+                <h2>MENU</h2>
+
+                <nav id="main-navigation">
+
+                    <button type="button" data-section="about">
+                        ABOUT
+                    </button>
+
+                    <button type="button" data-section="projects">
+                        PROJECTS
+                    </button>
+
+                    <button type="button" data-section="skills">
+                        SKILLS
+                    </button>
+
+                    <button type="button" data-section="experience">
+                        EXPERIENCE
+                    </button>
+
+                    <button type="button" data-section="contact">
+                        CONTACT
+                    </button>
+
+                    <button type="button" data-action="resume">
+                        RESUME
+                    </button>
+
+                </nav>
+
+                <hr>
+
+                <button
+                    type="button"
+                    data-action="return-to-world"
+                >
+                    RETURN TO WORLD
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             MAP
+             ===================================== -->
+
+        <div id="map-menu" class="overlay hidden">
+
+            <div class="window">
+
+                <button
+                    class="close-button"
+                    id="map-close"
+                    type="button"
+                >
+                    ×
+                </button>
+
+                <h2>SYSTEM MAP</h2>
+
+                <div id="map">
+
+                    <!-- CPU -->
+                    <button
+                        class="map-node"
+                        data-section="about"
+                        id="map-cpu"
+                        type="button"
+                    >
+                        <strong>CPU</strong>
+                        <span>ABOUT</span>
+                    </button>
+
+                    <!-- RAM -->
+                    <button
+                        class="map-node"
+                        data-section="projects"
+                        id="map-ram"
+                        type="button"
+                    >
+                        <strong>RAM</strong>
+                        <span>PROJECTS</span>
+                    </button>
+
+                    <!-- GPU -->
+                    <button
+                        class="map-node"
+                        data-section="skills"
+                        id="map-gpu"
+                        type="button"
+                    >
+                        <strong>GPU</strong>
+                        <span>SKILLS</span>
+                    </button>
+
+                    <!-- Storage -->
+                    <button
+                        class="map-node"
+                        data-section="experience"
+                        id="map-storage"
+                        type="button"
+                    >
+                        <strong>STORAGE</strong>
+                        <span>EXPERIENCE</span>
+                    </button>
+
+                    <!-- Network -->
+                    <button
+                        class="map-node"
+                        data-section="contact"
+                        id="map-network"
+                        type="button"
+                    >
+                        <strong>NETWORK</strong>
+                        <span>CONTACT</span>
+                    </button>
+
+                    <!-- Terminal -->
+                    <button
+                        class="map-node"
+                        data-action="terminal"
+                        id="map-terminal"
+                        type="button"
+                    >
+                        <strong>TERMINAL</strong>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             CONTENT MODAL
+             ===================================== -->
+
+        <div id="content-modal" class="overlay hidden">
+
+            <div class="window content-window">
+
+                <button
+                    id="modal-close"
+                    class="close-button"
+                    type="button"
+                >
+                    ×
+                </button>
+
+                <!--
+                    JavaScript inserts portfolio content here.
+                -->
+                <div id="modal-content"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             TERMINAL
+             ===================================== -->
+
+        <div id="terminal-ui" class="overlay hidden">
+
+            <div id="terminal-window">
+
+                <div id="terminal-header">
+
+                    <span>TERMINAL</span>
+
+                    <button
+                        id="terminal-close"
+                        class="close-button"
+                        type="button"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+                <div id="terminal-output"></div>
+
+                <div id="terminal-input-line">
+
+                    <span>&gt;</span>
+
+                    <input
+                        id="terminal-input"
+                        type="text"
+                        autocomplete="off"
+                        spellcheck="false"
+                        aria-label="Terminal input"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <!--
+        main.js will be the entry point for the
+        entire application.
+    -->
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

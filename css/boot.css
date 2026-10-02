@@ -1,0 +1,68 @@
+/* =========================================
+   BOOT SCREEN
+   ========================================= */
+
+#boot-screen {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #030504;
+
+    color: #5ee89a;
+}
+
+
+/* =========================================
+   TERMINAL
+   ========================================= */
+
+#boot-terminal {
+    width: min(800px, 90vw);
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    text-shadow:
+        0 0 5px rgba(94, 232, 154, 0.5);
+}
+
+
+/* =========================================
+   BOOT OUTPUT
+   ========================================= */
+
+#boot-output {
+    min-height: 400px;
+
+    white-space: pre-wrap;
+}
+
+
+/* =========================================
+   BOOT PROMPT
+   ========================================= */
+
+#boot-prompt {
+    margin-top: 25px;
+
+    animation: boot-blink 1s steps(1) infinite;
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes boot-blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
