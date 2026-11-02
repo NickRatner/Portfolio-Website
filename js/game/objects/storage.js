@@ -17,7 +17,7 @@ export function createStorage(x, y) {
 
         prompt: "View Experience",
 
-        label: "Storage",
+        label: "Experience",
         sprite,
         width: 128,
         height: 128,
